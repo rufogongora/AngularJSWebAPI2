@@ -1,0 +1,29 @@
+﻿<div class="panel panel-default" ng-repeat="p in persons">
+    <div class="panel-heading">
+        <h3>{{p.name}}'s favorite food <i class="fa fa-user-circle"></i> 
+            <button ng-click="deletePerson(p)" class="btn btn-danger pull-right"><i class="fa fa-trash-alt"></i></button>
+        </h3> 
+    </div>
+    <table class="table table-striped">
+        <tbody ui-sortable="sortableOptions" ng-model="p.foods">
+            <tr ng-repeat="f in p.foods track by $index">
+                <td class="col-md-6">{{f.name}}</td>
+                <td class="col-md-6" ng-if="editing"><button ng-click="removeFood(p, f)" class="btn btn-danger"><i class="fa fa-trash-alt"></i></button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div ng-if="p.foods.length == 0" class="panel-body">
+        <div class="alert alert-warning">{{p.name}} does not have any favorite foods right now.</div>
+    </div>
+    <div ng-if="editing" class="panel-body">
+        <hr />
+        <form ng-submit="addFood(p, newFoods[p.name])">
+            <div class="form-group">
+                <label>Add new favorite food</label>
+                <input required ng-model="newFoods[p.name].name" type="text" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-success">Add</button>
+        </form>
+    </div>
+
+</div>

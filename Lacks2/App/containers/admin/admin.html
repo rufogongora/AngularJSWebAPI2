@@ -1,0 +1,20 @@
+﻿<div class="container-fluid">
+    <h1>Admin page</h1>    
+    <div class="col-md-8">
+            <personlist persons="persons" editing="true"></personlist>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-info">
+            <div class="panel-heading">Add a New Person <i class="fa fa-plus-circle"></i></div>
+            <div class="panel-body">
+                <form ng-submit="addPerson()">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input required type="text" ng-model="newPerson.name" class="form-control" />
+                    </div>
+                    <button type="submit" class="btn btn-info">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
