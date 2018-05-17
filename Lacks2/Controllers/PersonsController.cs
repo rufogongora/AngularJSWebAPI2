@@ -45,7 +45,7 @@ namespace Lacks2.Controllers
 
             if (person == null)
                 return BadRequest("Invalid Person");
-
+			db.Foods.RemoveRange(person.Foods);
             db.Persons.Remove(person);
             await db.SaveChangesAsync();
             return Ok();

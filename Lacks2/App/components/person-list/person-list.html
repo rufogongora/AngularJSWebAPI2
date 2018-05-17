@@ -1,7 +1,7 @@
 ﻿<div class="panel panel-default" ng-repeat="p in persons">
     <div class="panel-heading">
         <h3>{{p.name}}'s favorite food <i class="fa fa-user-circle"></i> 
-            <button ng-click="deletePerson(p)" class="btn btn-danger pull-right"><i class="fa fa-trash-alt"></i></button>
+            <button ng-if="editing" ng-click="deletePerson(p)" class="btn btn-danger pull-right"><i class="fa fa-trash-alt"></i></button>
         </h3> 
     </div>
     <table class="table table-striped">
